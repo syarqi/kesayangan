@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buat ayang</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="background-music" src="background.mp3" autoplay loop></audio>
+
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="login-container">
+            <h1>hai ayang </h1>
+            <p>masukin nama dulu gih :) </p>
+            <input type="text" id="username" placeholder="Nama ayang">
+            <button onclick="login()">lets go!</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        <div class="slider">
+            <div class="slides">
+                <div id="slide1" class="slide">
+                    <div class="slide-content">
+                        <h2> ayang maaf yahh :( </h2>
+                        <div class="content-frame">
+                            <img src="pentol love .gif" alt="Slide 1">
+                            <div class="story">
+                                <h3>maaf yahh kalo aku sering cuekin kamu :( </h3>
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide2" class="slide">
+                    <div class="slide-content">
+                        <h2></h2>
+                        <div class="content-frame">
+                            <img src="pentol pelukan.gif" alt="Slide 2">
+                            <div class="story">
+                                <h3>maaf juga kalo aku sering marah sama kamu :( </h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide3" class="slide">
+                    <div class="slide-content">
+                        <h2> </h2>
+                        <div class="content-frame">
+                            <img src="pentol jangan.gif" alt="Slide 3">
+                            <div class="story">
+                                <h3>kamu jangan ninggalin aku sendirian yahh :(</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide4" class="slide">
+                    <div class="slide-content">
+                        <h2></h2>
+                        <div class="content-frame">
+                            <img src="pentol okay.gif" alt="Slide 4">
+                            <div class="story">
+                                <h3>kamu mau nungguin aku kann :) </h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide5" class="slide">
+                    <div class="slide-content">
+                        <h2> </h2>
+                        <div class="content-frame">
+                            <img src="pentol nangis.gif" alt="Slide 5">
+                            <div class="story">
+                                <h3>AYANG KANGENN....;( </h3>
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide6" class="slide">
+                    <div class="slide-content">
+                        <h2></h2>
+                        <div class="content-frame">
+                            <img src="pentol sarange .gif" alt="Slide 6">
+                            <div class="story">
+                                <h3>MAKASIH YAHH UDAH SELALU ADA BUAT AKU, MESKIPUN KITA JAUH AKU BERHARAP KITA BAKAL SEMAKIN DEKAT DAN BISA BERSAMA </h3>
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide7" class="slide">
+                    <div class="slide-content">
+                        <h2></h2>
+                        <div class="content-frame">
+                            <img src="pentol goyang .gif" alt="Terima Kasih">
+                            <div class="story">
+                                <h3>MAAF KALO AKU SUKA JAILIN KAMU HHE :) ,TAPI MAKASIH YAHH AYANG SEKALI LAGI MAKASIH :) </h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            if (username) {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                alert('Masukin dulu ayang namanya ihh!');
+            }
+        }
+
+        var slideIndex = 0;
+        showSlide(slideIndex);
+
+        function showSlide(n) {
+            var slides = document.getElementsByClassName('slide');
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('flip');
+                slides[i].style.display = 'none';
+            }
+            slides[slideIndex].style.display = 'block';
+            slides[slideIndex].offsetHeight; // Trigger reflow to reset animation
+            slides[slideIndex].classList.add('flip');
+        }
+
+        function autoSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+            setTimeout(autoSlide, 5000); // Ganti slide setiap 5 detik
+        }
+
+        autoSlide(); // Mulai slideshow otomatis
+    </script>
+</body>
+</html>
